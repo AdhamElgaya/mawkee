@@ -139,16 +139,16 @@ const TRANSLATIONS = {
   ar: {
     meta: {
       home: {
-        title: 'موكي | وكالة تصميم وتطوير مواقع',
-        description: 'موكي — نصمم مواقع مذهلة تحقق نتائج. احجز استشارة مجانية اليوم.',
+        title: 'موقعي | وكالة تصميم وتطوير مواقع',
+        description: 'موقعي — نصمم مواقع مذهلة تحقق نتائج. احجز استشارة مجانية اليوم.',
       },
       services: {
-        title: 'خدماتنا | موكي',
-        description: 'خدمات موكي — تصميم مواقع، تطوير، استراتيجية UI/UX، وهوية بصرية للأعمال النامية.',
+        title: 'خدماتنا | موقعي',
+        description: 'خدمات موقعي — تصميم مواقع، تطوير، استراتيجية UI/UX، وهوية بصرية للأعمال النامية.',
       },
       portfolio: {
-        title: 'أعمالنا | موكي',
-        description: 'معرض أعمال موكي — مشاريع تصميم وتطوير مواقع مختارة قدمناها لعملائنا.',
+        title: 'أعمالنا | موقعي',
+        description: 'معرض أعمال موقعي — مشاريع تصميم وتطوير مواقع مختارة قدمناها لعملائنا.',
       },
     },
     nav: {
@@ -162,7 +162,7 @@ const TRANSLATIONS = {
     hero: {
       badge: 'متاحون لمشاريع جديدة',
       title: 'نبني <span class="gradient-text">تجارب رقمية</span> تُحدث&nbsp;فرقاً',
-      subtitle: 'موكي وكالة تصميم وتطوير مواقع تصنع مواقع سريعة وجميلة ومركّزة على التحويل للعلامات التجارية الطموحة.',
+      subtitle: 'موقعي وكالة تصميم وتطوير مواقع تصنع مواقع سريعة وجميلة ومركّزة على التحويل للعلامات التجارية الطموحة.',
       btnConsult: 'احجز استشارة مجانية',
       btnWork: 'شاهد أعمالنا',
       scroll: 'مرر',
@@ -267,7 +267,7 @@ const TRANSLATIONS = {
     },
     footer: {
       tagline: 'نصنع تجارب رقمية تحقق نتائج.',
-      rights: '© 2026 موكي. جميع الحقوق محفوظة.',
+      rights: '© 2026 موقعي. جميع الحقوق محفوظة.',
       instagram: 'تابعنا على إنستغرام',
     },
   },
@@ -332,11 +332,12 @@ function applyLanguage(lang) {
     el.setAttribute('aria-label', t(el.dataset.i18nAria));
   });
 
-  const langBtn = document.getElementById('langToggle');
-  if (langBtn) {
-    langBtn.textContent = t('nav.langSwitch');
-    langBtn.setAttribute('aria-label', lang === 'en' ? 'Switch to Arabic' : 'Switch to English');
-  }
+  const langOptions = document.querySelectorAll('.lang-option');
+  langOptions.forEach((btn) => {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive);
+  });
 
   const weekdaysEl = document.querySelector('.calendar-weekdays');
   if (weekdaysEl) {
@@ -355,12 +356,13 @@ function applyLanguage(lang) {
 function initI18n() {
   applyLanguage(currentLang);
 
-  const langBtn = document.getElementById('langToggle');
-  if (langBtn) {
-    langBtn.addEventListener('click', () => {
-      applyLanguage(currentLang === 'en' ? 'ar' : 'en');
+  document.querySelectorAll('.lang-option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.lang !== currentLang) {
+        applyLanguage(btn.dataset.lang);
+      }
     });
-  }
+  });
 }
 
 window.t = t;

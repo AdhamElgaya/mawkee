@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Mawkee services — web design, development, UI/UX strategy, and brand identity for growing businesses." />
   <title>Services | Mawkee</title>
-  <link rel="icon" href="assets/Sign.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -31,9 +31,6 @@
         <li><a href="services.html" class="active" data-i18n="nav.services">Services</a></li>
         <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
         <li><a href="index.html#process" data-i18n="nav.process">Process</a></li>
-        <li>
-          <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">عربي</button>
-        </li>
         <li><a href="index.html#booking" class="nav-cta" data-i18n="nav.booking">Book a Meeting</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" data-i18n-aria="nav.toggleMenu" aria-label="Toggle menu" aria-expanded="false">
@@ -157,6 +154,12 @@
             <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none" />
           </svg>
         </a>
+      </div>
+      <div class="footer-lang">
+        <div class="lang-switcher" role="group" aria-label="Language">
+          <button type="button" class="lang-option active" data-lang="en" aria-pressed="true">English</button>
+          <button type="button" class="lang-option" data-lang="ar" aria-pressed="false">العربية</button>
+        </div>
       </div>
       <div class="footer-bottom">
         <p data-i18n="footer.rights">&copy; 2026 Mawkee. All rights reserved.</p>

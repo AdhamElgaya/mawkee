@@ -85,10 +85,14 @@ function initCursorGlow() {
 
 /* ----- Scroll reveal animations ----- */
 function initRevealAnimations() {
-  const reveals = document.querySelectorAll('.reveal');
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+    el.classList.add('visible');
+  });
+
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const siblings = entry.target.parentElement.querySelectorAll('.reveal');
           const index = Array.from(siblings).indexOf(entry.target);
@@ -101,12 +105,19 @@ function initRevealAnimations() {
     { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
   );
 
-  reveals.forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach((el) => {
+    if (!el.closest('.hero')) {
+      observer.observe(el);
+    }
+  });
 }
 
 /* ----- Counter animation ----- */
 function initCounterAnimation() {
-  const counters = document.querySelectorAll('.stat-number');
+  document.querySelectorAll('.hero .stat-number').forEach((counter) => {
+    animateCounter(counter);
+  });
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -119,7 +130,11 @@ function initCounterAnimation() {
     { threshold: 0.5 }
   );
 
-  counters.forEach(c => observer.observe(c));
+  document.querySelectorAll('.stat-number').forEach((counter) => {
+    if (!counter.closest('.hero')) {
+      observer.observe(counter);
+    }
+  });
 }
 
 function animateCounter(el) {
