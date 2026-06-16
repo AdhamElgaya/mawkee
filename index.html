@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mawkee — We craft stunning websites that drive results. Book a free consultation today." />
+  <title>Mawkee | Web Design & Development Agency</title>
+  <link rel="icon" href="assets/Sign.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav-logo" aria-label="Mawkee home">
+        <span class="logo" id="siteLogo">
+          <span class="logo-sign">
+            <img src="assets/Sign.svg" alt="" width="24" height="24" />
+          </span>
+          <span class="logo-word-track">
+            <img class="logo-word" src="assets/Word.svg" alt="awkee" />
+          </span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
+        <li><a href="index.html#process" data-i18n="nav.process">Process</a></li>
+        <li>
+          <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">عربي</button>
+        </li>
+        <li><a href="index.html#booking" class="nav-cta" data-i18n="nav.booking">Book a Meeting</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" data-i18n-aria="nav.toggleMenu" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="grid-lines"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-badge reveal">
+          <span class="pulse-dot"></span>
+          <span data-i18n="hero.badge">Available for new projects</span>
+        </div>
+        <h1 class="hero-title reveal" data-i18n-html="hero.title">
+          We Build <span class="gradient-text">Digital Experiences</span> That Matter
+        </h1>
+        <p class="hero-subtitle reveal" data-i18n="hero.subtitle">
+          Mawkee is a web design and development agency crafting fast, beautiful, and conversion-focused websites for ambitious brands.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#booking" class="btn btn-primary">
+            <span data-i18n="hero.btnConsult">Book a Free Consultation</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="portfolio.html" class="btn btn-ghost" data-i18n="hero.btnWork">View Our Work</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="stat">
+            <div class="stat-value">
+              <span class="stat-number" data-count="50">0</span><span class="stat-suffix">+</span>
+            </div>
+            <span class="stat-label" data-i18n="hero.statProjects">Projects Delivered</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-value">
+              <span class="stat-number" data-count="98">0</span><span class="stat-suffix">%</span>
+            </div>
+            <span class="stat-label" data-i18n="hero.statSatisfaction">Client Satisfaction</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <div class="stat-value">
+              <span class="stat-number" data-count="5">0</span><span class="stat-suffix">+</span>
+            </div>
+            <span class="stat-label" data-i18n="hero.statExperience">Years Experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span data-i18n="hero.scroll">Scroll</span>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag" data-i18n="process.tag">How We Work</span>
+          <h2 class="section-title" data-i18n="process.title">Our Process</h2>
+          <p class="section-desc" data-i18n="process.desc">A proven framework that turns ideas into exceptional digital products.</p>
+        </div>
+        <div class="process-timeline">
+          <div class="process-step reveal">
+            <div class="step-number">01</div>
+            <h3 data-i18n="process.step1Title">Discovery</h3>
+            <p data-i18n="process.step1Desc">We learn about your goals, audience, and vision through a collaborative kickoff session.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-number">02</div>
+            <h3 data-i18n="process.step2Title">Design</h3>
+            <p data-i18n="process.step2Desc">Wireframes evolve into high-fidelity mockups. You approve every detail before we write a line of code.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-number">03</div>
+            <h3 data-i18n="process.step3Title">Develop</h3>
+            <p data-i18n="process.step3Desc">Our engineers build your site with clean, scalable code and rigorous testing across all devices.</p>
+          </div>
+          <div class="process-step reveal">
+            <div class="step-number">04</div>
+            <h3 data-i18n="process.step4Title">Launch</h3>
+            <p data-i18n="process.step4Desc">We deploy, optimize, and hand over — with ongoing support to keep your site performing at its best.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking">
+      <div class="container">
+        <div class="booking-wrapper">
+          <div class="booking-info reveal">
+            <span class="section-tag" data-i18n="booking.tag">Let's Talk</span>
+            <h2 class="section-title" data-i18n="booking.title">Book a Meeting</h2>
+            <p class="section-desc" data-i18n="booking.desc">Ready to start your project? Pick a date and time that works for you. We'll send a confirmation with a meeting link.</p>
+            <ul class="booking-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span data-i18n="booking.feature1">Free 30-minute consultation</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span data-i18n="booking.feature2">No commitment required</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span data-i18n="booking.feature3">Video call via Google Meet or Zoom</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="booking-form-container reveal">
+            <form class="booking-form" id="bookingForm" novalidate>
+              <input type="checkbox" name="botcheck" class="booking-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <p class="booking-form-error" id="bookingFormError" hidden role="alert"></p>
+              <div class="form-steps">
+                <div class="form-step active" data-step="1">
+                  <span class="step-dot"></span>
+                  <span data-i18n="booking.stepDate">Date & Time</span>
+                </div>
+                <div class="form-step-line"></div>
+                <div class="form-step" data-step="2">
+                  <span class="step-dot"></span>
+                  <span data-i18n="booking.stepDetails">Your Details</span>
+                </div>
+              </div>
+
+              <div class="form-panel active" id="step1">
+                <div class="calendar-header">
+                  <button type="button" class="cal-nav" id="prevMonth" data-i18n-aria="booking.prevMonth" aria-label="Previous month">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                  </button>
+                  <h3 id="calendarMonth"></h3>
+                  <button type="button" class="cal-nav" id="nextMonth" data-i18n-aria="booking.nextMonth" aria-label="Next month">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                  </button>
+                </div>
+                <div class="calendar-weekdays">
+                  <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div class="calendar-days" id="calendarDays"></div>
+
+                <div class="time-slots-section" id="timeSlotsSection" hidden>
+                  <h4 data-i18n="booking.availableTimes">Available Times</h4>
+                  <div class="time-slots" id="timeSlots"></div>
+                </div>
+
+                <button type="button" class="btn btn-primary btn-full" id="toStep2" disabled>
+                  <span data-i18n="booking.continue">Continue</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+
+              <div class="form-panel" id="step2">
+                <div class="selected-datetime" id="selectedDatetime"></div>
+
+                <div class="form-group">
+                  <label for="fullName" data-i18n="booking.fullName">Full Name</label>
+                  <input type="text" id="fullName" name="fullName" data-i18n-placeholder="booking.placeholderName" placeholder="John Doe" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="email" data-i18n="booking.email">Email Address</label>
+                  <input type="email" id="email" name="email" data-i18n-placeholder="booking.placeholderEmail" placeholder="john@company.com" required autocomplete="email" />
+                </div>
+                <div class="form-group">
+                  <label for="company" id="companyLabel">Company <span class="optional">(optional)</span></label>
+                  <input type="text" id="company" name="company" data-i18n-placeholder="booking.placeholderCompany" placeholder="Your Company" autocomplete="organization" />
+                </div>
+                <div class="form-group">
+                  <label for="message" data-i18n="booking.message">What would you like to discuss?</label>
+                  <textarea id="message" name="message" rows="3" data-i18n-placeholder="booking.placeholderMessage" placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="button" class="btn btn-ghost" id="backToStep1" data-i18n="booking.back">Back</button>
+                  <button type="submit" class="btn btn-primary" id="submitBooking">
+                    <span data-i18n="booking.confirm">Confirm Booking</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="booking-success" id="bookingSuccess" hidden>
+              <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <h3 data-i18n="booking.successTitle">Meeting Booked!</h3>
+              <p id="successMessage"></p>
+              <button type="button" class="btn btn-ghost" id="bookAnother" data-i18n="booking.bookAnother">Book Another Meeting</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo" aria-label="Mawkee home">
+          <span class="logo logo--static">
+            <span class="logo-sign">
+              <img src="assets/Sign.svg" alt="" width="22" height="22" />
+            </span>
+            <span class="logo-word-track">
+              <img class="logo-word" src="assets/Word.svg" alt="awkee" />
+            </span>
+          </span>
+        </a>
+        <p data-i18n="footer.tagline">Crafting digital experiences that drive results.</p>
+      </div>
+      <div class="footer-links">
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="index.html#process" data-i18n="nav.process">Process</a>
+        <a href="index.html#booking" data-i18n="nav.booking">Book a Meeting</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/mawkee.dev/" class="footer-social-link" target="_blank" rel="noopener noreferrer" data-i18n-aria="footer.instagram" aria-label="Follow us on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4.5" />
+            <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footer.rights">&copy; 2026 Mawkee. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/booking-config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
