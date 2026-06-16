@@ -40,20 +40,31 @@ function initLogo() {
 /* ----- Mobile navigation ----- */
 function initNav() {
   const toggle = document.getElementById('navToggle');
+  const overlay = document.getElementById('navOverlay');
   const links = document.getElementById('navLinks');
+  const backdrop = document.getElementById('navBackdrop');
+
+  function setNavOpen(open) {
+    overlay?.classList.toggle('open', open);
+    toggle.classList.toggle('active', open);
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    overlay?.setAttribute('aria-hidden', !open);
+    if (backdrop) backdrop.setAttribute('aria-hidden', !open);
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+    }
+  }
 
   toggle.addEventListener('click', () => {
-    const isOpen = links.classList.toggle('open');
-    toggle.classList.toggle('active');
-    toggle.setAttribute('aria-expanded', isOpen);
+    setNavOpen(!overlay?.classList.contains('open'));
   });
 
+  backdrop?.addEventListener('click', () => setNavOpen(false));
+
   links.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', () => setNavOpen(false));
   });
 }
 

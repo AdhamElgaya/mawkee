@@ -346,8 +346,20 @@ ul { list-style: none; }
 .nav-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
-  padding: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.nav-toggle:hover {
+  border-color: var(--text-muted);
+  background: var(--accent-glow);
 }
 
 .nav-toggle span {
@@ -369,6 +381,33 @@ ul { list-style: none; }
 
 .nav-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-backdrop {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    pointer-events: none;
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-overlay .nav-links {
+    width: min(1200px, 100%);
+    padding: 0 24px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 }
 
 /* ===== Buttons ===== */
@@ -1533,40 +1572,132 @@ html[dir="rtl"] .calendar-header {
 }
 
 @media (max-width: 768px) {
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    padding: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  body.nav-open .nav-overlay {
+    z-index: 1100;
+    pointer-events: auto;
+  }
+
+  body.nav-open .header {
+    z-index: 1101;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition), visibility var(--transition);
+  }
+
+  .nav-overlay.open .nav-backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--bg);
-    border-left: 1px solid var(--border);
+    top: 36%;
+    left: 50%;
+    right: auto;
+    z-index: 2;
+    display: none;
+    width: calc(100% - 48px);
+    max-width: 340px;
+    height: auto;
+    margin: 0;
+    padding: 28px 24px 24px;
     flex-direction: column;
-    padding: 80px 32px 32px;
-    gap: 24px;
-    transition: right var(--transition);
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.96);
+    transition:
+      opacity var(--transition),
+      visibility var(--transition),
+      transform var(--transition);
   }
 
-  html[dir="rtl"] .nav-links {
-    right: auto;
-    left: -100%;
-    border-left: none;
-    border-right: 1px solid var(--border);
-    transition: left var(--transition);
+  .nav-overlay.open .nav-links {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    width: calc(100% - 48px);
+    max-width: 340px;
   }
 
-  .nav-links.open {
-    right: 0;
+  .nav-links li {
+    width: 100%;
+    text-align: center;
   }
 
-  html[dir="rtl"] .nav-links.open {
-    right: auto;
-    left: 0;
+  .nav-links li:has(a.active) {
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 6px;
+    padding-bottom: 2px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 8px;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links a.active {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .nav-links .nav-cta {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 24px !important;
+    text-align: center;
+    justify-content: center;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .nav-links .nav-cta:hover {
+    transform: none !important;
   }
 
   .nav-toggle {
     display: flex;
-    z-index: 1001;
+    position: relative;
+    z-index: 3;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   .hero-stats {

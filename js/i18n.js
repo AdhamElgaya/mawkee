@@ -17,6 +17,7 @@ const TRANSLATIONS = {
       },
     },
     nav: {
+      home: 'Home',
       services: 'Services',
       portfolio: 'Portfolio',
       process: 'Process',
@@ -152,6 +153,7 @@ const TRANSLATIONS = {
       },
     },
     nav: {
+      home: 'الرئيسية',
       services: 'خدماتنا',
       portfolio: 'أعمالنا',
       process: 'طريقة العمل',
