@@ -15,12 +15,17 @@ const TRANSLATIONS = {
         title: 'Portfolio | Mawkee',
         description: 'Mawkee portfolio — selected web design and development projects we\'ve delivered for clients.',
       },
+      contact: {
+        title: 'Contact | Mawkee',
+        description: 'Contact Mawkee — reach us by phone to discuss your web design and development project.',
+      },
     },
     nav: {
       home: 'Home',
       services: 'Services',
       portfolio: 'Portfolio',
       process: 'Process',
+      contact: 'Contact',
       booking: 'Book a Meeting',
       toggleMenu: 'Toggle menu',
       langSwitch: 'عربي',
@@ -109,27 +114,22 @@ const TRANSLATIONS = {
     portfolio: {
       tag: 'Portfolio',
       title: 'Selected Work',
-      desc: "A glimpse of the digital products we've brought to life for clients across industries.",
-      cat1: 'E-Commerce',
-      p1Title: 'Luxora Store',
-      p1Desc: 'Full-stack e-commerce platform with custom checkout flow',
-      cat2: 'SaaS',
-      p2Title: 'FlowMetrics',
-      p2Desc: 'Analytics dashboard for real-time business intelligence',
-      cat3: 'Corporate',
-      p3Title: 'NovaTech',
-      p3Desc: 'Corporate website with CMS and multilingual support',
-      cat4: 'Restaurant',
-      p4Title: 'Saffron Kitchen',
-      p4Desc: 'Restaurant website with online reservations and menu management',
-      cat5: 'Portfolio',
-      p5Title: 'Studio Elara',
-      p5Desc: 'Creative portfolio for a photography and design studio',
-      cat6: 'Healthcare',
-      p6Title: 'MediCare Plus',
-      p6Desc: 'Patient portal with appointment scheduling and telehealth integration',
+      desc: 'Real projects we\'ve designed and built for clients.',
+      projectCat: 'Legal',
+      projectTitle: 'El Gayar & Zein Law Firm',
+      projectDesc: 'Corporate website for a leading Egyptian law firm — bilingual, professional, and built to reflect the firm\'s credibility.',
+      visitSite: 'Visit Website',
       ctaTitle: 'Want results like these?',
       ctaDesc: "Let's talk about your project and build something great together.",
+    },
+    contact: {
+      tag: 'Get in Touch',
+      title: 'Contact Us',
+      desc: 'Have a question or want to discuss your project? Reach out to us directly by phone.',
+      phoneLabel: 'Phone',
+      callNow: 'Call Now',
+      ctaTitle: 'Prefer to schedule online?',
+      ctaDesc: 'Book a free consultation at a time that works for you.',
     },
     footer: {
       tagline: 'Crafting digital experiences that drive results.',
@@ -151,12 +151,17 @@ const TRANSLATIONS = {
         title: 'أعمالنا | موقعي',
         description: 'معرض أعمال موقعي — مشاريع تصميم وتطوير مواقع مختارة قدمناها لعملائنا.',
       },
+      contact: {
+        title: 'تواصل معنا | موقعي',
+        description: 'تواصل مع موقعي — اتصل بنا لمناقشة مشروع تصميم أو تطوير موقعك.',
+      },
     },
     nav: {
       home: 'الرئيسية',
       services: 'خدماتنا',
       portfolio: 'أعمالنا',
       process: 'طريقة العمل',
+      contact: 'تواصل معنا',
       booking: 'احجز موعد',
       toggleMenu: 'فتح القائمة',
       langSwitch: 'EN',
@@ -245,27 +250,22 @@ const TRANSLATIONS = {
     portfolio: {
       tag: 'أعمالنا',
       title: 'مشاريع مختارة',
-      desc: 'لمحة عن المنتجات الرقمية التي أنجزناها لعملاء في مختلف المجالات.',
-      cat1: 'تجارة إلكترونية',
-      p1Title: 'متجر لوكسورا',
-      p1Desc: 'منصة تجارة إلكترونية متكاملة مع نظام دفع مخصص',
-      cat2: 'SaaS',
-      p2Title: 'فلو ميتريكس',
-      p2Desc: 'لوحة تحليلات للذكاء التجاري في الوقت الفعلي',
-      cat3: 'شركات',
-      p3Title: 'نوفاتك',
-      p3Desc: 'موقع شركات مع نظام إدارة محتوى ودعم متعدد اللغات',
-      cat4: 'مطاعم',
-      p4Title: 'مطبخ زعفران',
-      p4Desc: 'موقع مطعم مع حجوزات أونلاين وإدارة القائمة',
-      cat5: 'معرض أعمال',
-      p5Title: 'ستوديو إيلارا',
-      p5Desc: 'معرض إبداعي لاستوديو تصوير وتصميم',
-      cat6: 'رعاية صحية',
-      p6Title: 'ميديكير بلس',
-      p6Desc: 'بوابة مرضى مع حجز مواعيد وتكامل للطب عن بُعد',
+      desc: 'مشاريع حقيقية صممناها وطورناها لعملائنا.',
+      projectCat: 'قانون',
+      projectTitle: 'مكتب الجيار و زين',
+      projectDesc: 'موقع احترافي لمكتب محاماة مصري — ثنائي اللغة ومصمم ليعكس ثقة المكتب أمام العملاء.',
+      visitSite: 'زيارة الموقع',
       ctaTitle: 'تريد نتائج مثل هذه؟',
       ctaDesc: 'لنتحدث عن مشروعك ونبني شيئاً رائعاً معاً.',
+    },
+    contact: {
+      tag: 'تواصل معنا',
+      title: 'اتصل بنا',
+      desc: 'عندك سؤال أو عايز تناقش مشروعك؟ تواصل معانا مباشرة على التليفون.',
+      phoneLabel: 'تليفون',
+      callNow: 'اتصل الآن',
+      ctaTitle: 'تفضّل الحجز أونلاين؟',
+      ctaDesc: 'احجز استشارة مجانية في الوقت المناسب لك.',
     },
     footer: {
       tagline: 'نصنع تجارب رقمية تحقق نتائج.',
@@ -280,6 +280,7 @@ const PAGE_META_KEYS = {
   '': 'home',
   'services.html': 'services',
   'portfolio.html': 'portfolio',
+  'contact.html': 'contact',
 };
 
 let currentLang = localStorage.getItem('mawkee_lang') || 'en';
@@ -353,10 +354,16 @@ function applyLanguage(lang) {
   }
 
   document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+
+  document.documentElement.classList.remove('i18n-pending');
+  document.documentElement.classList.add('i18n-ready');
 }
 
-function initI18n() {
-  applyLanguage(currentLang);
+let langSwitcherWired = false;
+
+function wireLangSwitcher() {
+  if (langSwitcherWired) return;
+  langSwitcherWired = true;
 
   document.querySelectorAll('.lang-option').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -365,6 +372,15 @@ function initI18n() {
       }
     });
   });
+}
+
+function initI18n() {
+  applyLanguage(currentLang);
+  wireLangSwitcher();
+}
+
+if (document.body) {
+  applyLanguage(currentLang);
 }
 
 window.t = t;

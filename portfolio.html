@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script src="js/i18n-boot.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Mawkee portfolio — selected web design and development projects we've delivered for clients." />
   <title>Portfolio | Mawkee</title>
@@ -52,101 +53,19 @@
 
     <section class="section work section-page">
       <div class="container">
-        <div class="work-grid">
+        <div class="work-grid work-grid--single">
           <article class="work-card reveal">
             <div class="work-image">
-              <div class="work-placeholder" style="--hue: 220">
-                <span data-i18n="portfolio.cat1">E-Commerce</span>
-              </div>
+              <div class="work-placeholder work-placeholder--empty" aria-hidden="true"></div>
             </div>
             <div class="work-info">
-              <h3 data-i18n="portfolio.p1Title">Luxora Store</h3>
-              <p data-i18n="portfolio.p1Desc">Full-stack e-commerce platform with custom checkout flow</p>
-              <div class="work-tags">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>Stripe</span>
-              </div>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-image">
-              <div class="work-placeholder" style="--hue: 160">
-                <span data-i18n="portfolio.cat2">SaaS</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <h3 data-i18n="portfolio.p2Title">FlowMetrics</h3>
-              <p data-i18n="portfolio.p2Desc">Analytics dashboard for real-time business intelligence</p>
-              <div class="work-tags">
-                <span>Next.js</span>
-                <span>D3.js</span>
-                <span>PostgreSQL</span>
-              </div>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-image">
-              <div class="work-placeholder" style="--hue: 280">
-                <span data-i18n="portfolio.cat3">Corporate</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <h3 data-i18n="portfolio.p3Title">NovaTech</h3>
-              <p data-i18n="portfolio.p3Desc">Corporate website with CMS and multilingual support</p>
-              <div class="work-tags">
-                <span>WordPress</span>
-                <span>GSAP</span>
-                <span>SEO</span>
-              </div>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-image">
-              <div class="work-placeholder" style="--hue: 40">
-                <span data-i18n="portfolio.cat4">Restaurant</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <h3 data-i18n="portfolio.p4Title">Saffron Kitchen</h3>
-              <p data-i18n="portfolio.p4Desc">Restaurant website with online reservations and menu management</p>
-              <div class="work-tags">
-                <span>HTML/CSS</span>
-                <span>JavaScript</span>
-                <span>Booking API</span>
-              </div>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-image">
-              <div class="work-placeholder" style="--hue: 320">
-                <span data-i18n="portfolio.cat5">Portfolio</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <h3 data-i18n="portfolio.p5Title">Studio Elara</h3>
-              <p data-i18n="portfolio.p5Desc">Creative portfolio for a photography and design studio</p>
-              <div class="work-tags">
-                <span>React</span>
-                <span>Framer Motion</span>
-                <span>CMS</span>
-              </div>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-image">
-              <div class="work-placeholder" style="--hue: 200">
-                <span data-i18n="portfolio.cat6">Healthcare</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <h3 data-i18n="portfolio.p6Title">MediCare Plus</h3>
-              <p data-i18n="portfolio.p6Desc">Patient portal with appointment scheduling and telehealth integration</p>
-              <div class="work-tags">
-                <span>Vue.js</span>
-                <span>Firebase</span>
-                <span>HIPAA</span>
-              </div>
+              <span class="work-category" data-i18n="portfolio.projectCat">Legal</span>
+              <h3 data-i18n="portfolio.projectTitle">El Gayar &amp; Zein Law Firm</h3>
+              <p data-i18n="portfolio.projectDesc">Corporate website for a leading Egyptian law firm — bilingual, professional, and built to reflect the firm's credibility.</p>
+              <a href="https://gzlawfirm.net" class="btn btn-primary work-visit" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="portfolio.visitSite">Visit Website</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+              </a>
             </div>
           </article>
         </div>
@@ -187,6 +106,7 @@
         <a href="services.html" data-i18n="nav.services">Services</a>
         <a href="portfolio.html" data-i18n="nav.portfolio">Portfolio</a>
         <a href="index.html#process" data-i18n="nav.process">Process</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
         <a href="index.html#booking" data-i18n="nav.booking">Book a Meeting</a>
       </div>
       <div class="footer-social">
@@ -217,6 +137,7 @@
       <li><a href="services.html" data-i18n="nav.services">Services</a></li>
       <li><a href="portfolio.html" class="active" data-i18n="nav.portfolio">Portfolio</a></li>
       <li><a href="index.html#process" data-i18n="nav.process">Process</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       <li><a href="index.html#booking" class="nav-cta" data-i18n="nav.booking">Book a Meeting</a></li>
     </ul>
   </div>

@@ -44,13 +44,15 @@ function initNav() {
   const links = document.getElementById('navLinks');
   const backdrop = document.getElementById('navBackdrop');
 
+  if (!toggle || !overlay || !links) return;
+
   function setNavOpen(open) {
-    overlay?.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
     toggle.classList.toggle('active', open);
     document.body.classList.toggle('nav-open', open);
-    toggle.setAttribute('aria-expanded', open);
-    overlay?.setAttribute('aria-hidden', !open);
-    if (backdrop) backdrop.setAttribute('aria-hidden', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+    overlay.setAttribute('aria-hidden', String(!open));
+    if (backdrop) backdrop.setAttribute('aria-hidden', String(!open));
 
     if (window.matchMedia('(max-width: 768px)').matches) {
       document.documentElement.style.overflow = open ? 'hidden' : '';
@@ -58,13 +60,19 @@ function initNav() {
   }
 
   toggle.addEventListener('click', () => {
-    setNavOpen(!overlay?.classList.contains('open'));
+    setNavOpen(!overlay.classList.contains('open'));
   });
 
   backdrop?.addEventListener('click', () => setNavOpen(false));
 
-  links.querySelectorAll('a').forEach(link => {
+  links.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => setNavOpen(false));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) {
+      setNavOpen(false);
+    }
   });
 }
 
