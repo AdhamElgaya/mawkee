@@ -118,6 +118,12 @@ const TRANSLATIONS = {
       projectCat: 'Legal',
       projectTitle: 'El Gayar & Zein Law Firm',
       projectDesc: 'Corporate website for a leading Egyptian law firm — bilingual, professional, and built to reflect the firm\'s credibility.',
+      yafttyCat: 'Outdoor Advertising',
+      yafttyTitle: 'Yaftty',
+      yafttyDesc: 'Coming soon landing page for an outdoor advertising platform — built to capture early interest and grow the brand waitlist.',
+      adessCat: 'Clothing Brand',
+      adessTitle: 'Adess',
+      adessDesc: 'Coming soon landing page for a clothing brand — minimalist design focused on quality and brand anticipation.',
       visitSite: 'Visit Website',
       ctaTitle: 'Want results like these?',
       ctaDesc: "Let's talk about your project and build something great together.",
@@ -128,6 +134,7 @@ const TRANSLATIONS = {
       desc: 'Have a question or want to discuss your project? Reach out to us directly by phone.',
       phoneLabel: 'Phone',
       callNow: 'Call Now',
+      whatsapp: 'WhatsApp',
       ctaTitle: 'Prefer to schedule online?',
       ctaDesc: 'Book a free consultation at a time that works for you.',
     },
@@ -254,6 +261,12 @@ const TRANSLATIONS = {
       projectCat: 'قانون',
       projectTitle: 'مكتب الجيار و زين',
       projectDesc: 'موقع احترافي لمكتب محاماة مصري — ثنائي اللغة ومصمم ليعكس ثقة المكتب أمام العملاء.',
+      yafttyCat: 'إعلانات خارجية',
+      yafttyTitle: 'يافطتي',
+      yafttyDesc: 'صفحة «قريباً» لمنصة إعلانات خارجية — مصممة لجذب الاهتمام المبكر وبناء قائمة انتظار للعلامة.',
+      adessCat: 'ماركة ملابس',
+      adessTitle: 'آديس',
+      adessDesc: 'صفحة «قريباً» لماركة ملابس — تصميم بسيط يركز على الجودة وبناء ترقب العلامة.',
       visitSite: 'زيارة الموقع',
       ctaTitle: 'تريد نتائج مثل هذه؟',
       ctaDesc: 'لنتحدث عن مشروعك ونبني شيئاً رائعاً معاً.',
@@ -264,6 +277,7 @@ const TRANSLATIONS = {
       desc: 'عندك سؤال أو عايز تناقش مشروعك؟ تواصل معانا مباشرة على التليفون.',
       phoneLabel: 'تليفون',
       callNow: 'اتصل الآن',
+      whatsapp: 'واتساب',
       ctaTitle: 'تفضّل الحجز أونلاين؟',
       ctaDesc: 'احجز استشارة مجانية في الوقت المناسب لك.',
     },
@@ -283,7 +297,32 @@ const PAGE_META_KEYS = {
   'contact.html': 'contact',
 };
 
-let currentLang = localStorage.getItem('mawkee_lang') || 'en';
+const LANG_COOKIE = 'mawkee_lang';
+const LANG_COOKIE_DAYS = 365;
+
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function setCookie(name, value, days = LANG_COOKIE_DAYS) {
+  document.cookie = `${name}=${encodeURIComponent(value)};path=/;max-age=${days * 86400};SameSite=Lax`;
+}
+
+function getSavedLang() {
+  let lang = getCookie(LANG_COOKIE);
+  if (!lang) {
+    lang = localStorage.getItem(LANG_COOKIE);
+    if (lang) setCookie(LANG_COOKIE, lang);
+  }
+  return lang;
+}
+
+function hasLangPreference() {
+  return !!getSavedLang();
+}
+
+let currentLang = getSavedLang() || 'en';
 
 function t(key) {
   const keys = key.split('.');
@@ -305,7 +344,8 @@ function getPageKey() {
 
 function applyLanguage(lang) {
   currentLang = lang;
-  localStorage.setItem('mawkee_lang', lang);
+  setCookie(LANG_COOKIE, lang);
+  localStorage.setItem(LANG_COOKIE, lang);
 
   const isRtl = lang === 'ar';
   document.documentElement.lang = lang;
@@ -375,15 +415,70 @@ function wireLangSwitcher() {
 }
 
 function initI18n() {
-  applyLanguage(currentLang);
+  if (hasLangPreference()) {
+    applyLanguage(currentLang);
+  } else {
+    initLangPopup();
+  }
   wireLangSwitcher();
 }
 
+function createLangPopup() {
+  if (document.getElementById('langPopup')) {
+    return document.getElementById('langPopup');
+  }
+
+  const popup = document.createElement('div');
+  popup.id = 'langPopup';
+  popup.className = 'lang-popup';
+  popup.setAttribute('role', 'dialog');
+  popup.setAttribute('aria-modal', 'true');
+  popup.setAttribute('aria-labelledby', 'langPopupTitle');
+  popup.innerHTML = `
+    <div class="lang-popup-backdrop"></div>
+    <div class="lang-popup-card">
+      <h2 id="langPopupTitle" class="lang-popup-title">Please Choose Your Language.</h2>
+      <p class="lang-popup-subtitle">برجاء اختيار لغتك.</p>
+      <div class="lang-popup-actions">
+        <button type="button" class="lang-popup-btn" data-lang="en">English</button>
+        <button type="button" class="lang-popup-btn" data-lang="ar">العربية</button>
+      </div>
+      <p class="lang-popup-notice">
+        We use cookies to remember your language preference.<br>
+        نستخدم ملفات تعريف الارتباط (cookies) لحفظ تفضيل لغتك.
+      </p>
+    </div>
+  `;
+  document.body.appendChild(popup);
+  return popup;
+}
+
+function initLangPopup() {
+  if (hasLangPreference() || document.getElementById('langPopup')) return;
+
+  const popup = createLangPopup();
+  document.documentElement.classList.add('lang-choice-open');
+  document.documentElement.classList.remove('lang-choice-pending');
+
+  popup.querySelectorAll('[data-lang]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      applyLanguage(btn.dataset.lang);
+      popup.remove();
+      document.documentElement.classList.remove('lang-choice-open');
+    });
+  });
+}
+
 if (document.body) {
-  applyLanguage(currentLang);
+  if (hasLangPreference()) {
+    applyLanguage(currentLang);
+  } else {
+    initLangPopup();
+  }
 }
 
 window.t = t;
 window.getLang = getLang;
 window.applyLanguage = applyLanguage;
 window.initI18n = initI18n;
+window.initLangPopup = initLangPopup;

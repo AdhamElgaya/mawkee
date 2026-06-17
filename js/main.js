@@ -16,12 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ----- Header scroll effect ----- */
 function initHeader() {
   const header = document.getElementById('header');
+  const overlay = document.getElementById('navOverlay');
   if (!header) return;
-  const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
+
+  const syncHeaderState = () => {
+    const isScrolled = window.scrollY > 50;
+    header.classList.toggle('scrolled', isScrolled);
+    overlay?.classList.toggle('scrolled', isScrolled);
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+
+  window.addEventListener('scroll', syncHeaderState, { passive: true });
+  syncHeaderState();
 }
 
 /* ----- Logo slide into M on scroll ----- */
